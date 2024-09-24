@@ -9,8 +9,8 @@
     <header>
         <h1>{{ app_name }}</h1>
     </header>
-    <h1>500 Internal Server Error</h1>
-    <p>An unexpected error has occurred. Please try again later.</p>
+    <h1>{{ config.get('ERROR_500_TITLE', 'Missing 500 Config Title') }}</h1>
+    <p>{{ config.get('ERROR_500_MESSAGE', 'Missing 500 Config Message') }}</p>
     <a href="{{ url_for('main.index') }}">Return to Home</a>
 </body>
 </html>
