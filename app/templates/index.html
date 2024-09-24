@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ app_name }}</h1>
+    </header>
+    <h1>User List</h1>
+    <ul>
+    {% for user in users %}
+        <li>{{ user.username }} - {{ user.email }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
