@@ -7,6 +7,9 @@ logger = logging.getLogger(__name__)
 
 @main_bp.route('/')
 def index():
+    """
+    Render the index page with a list of all users.
+    """
     logger.info('Accessing index page')
     try:
         users = load_users()
@@ -17,6 +20,9 @@ def index():
 
 @main_bp.route('/user/<int:id>')
 def user_detail(id):
+    """
+    Render the user detail page for a specific user.
+    """
     logger.info(f'Accessing user detail page for user id: {id}')
     try:
         user = get_user_by_id(id)

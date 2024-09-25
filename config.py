@@ -2,7 +2,8 @@ import os
 import logging
 
 class BaseConfig:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'test_secret_key'
+    """Base configuration class for the application."""
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'test_secret_key')
     USERS_JSON_PATH = os.path.join(os.path.dirname(__file__), 'users.json')
     TEMPLATES_AUTO_RELOAD = True
     APPLICATION_NAME = 'User Data Flask App'
@@ -19,18 +20,24 @@ class BaseConfig:
     LOG_FILE = 'logs/app.log'
 
 class DevelopmentConfig(BaseConfig):
+    """Configuration for development environment."""
     DEBUG = True
     LOG_LEVEL = logging.DEBUG
 
 class TestingConfig(BaseConfig):
+    """Configuration for testing environment."""
     TESTING = True
     LOG_LEVEL = logging.DEBUG
 
 class ProductionConfig(BaseConfig):
+    """Configuration for production environment."""
     DEBUG = False
     LOG_LEVEL = logging.ERROR
 
 def get_config():
+    """
+    Returns the appropriate configuration based on the environment variable.
+    """
     env = os.environ.get('FLASK_ENV', 'development').lower()
     if env == 'production':
         return ProductionConfig()

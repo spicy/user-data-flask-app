@@ -5,6 +5,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 def load_users(page=1):
+    """
+    Load users for a specific page from the JSON file.
+    """
     logger.debug(f'Loading users for page {page}')
     try:
         with open(current_app.config.get('USERS_JSON_PATH'), 'r') as f:
@@ -18,6 +21,9 @@ def load_users(page=1):
         raise
 
 def get_user_by_id(id):
+    """
+    Retrieve a user by their ID from the JSON file.
+    """
     logger.debug(f'Getting user with id {id}')
     try:
         with open(current_app.config.get('USERS_JSON_PATH'), 'r') as f:
