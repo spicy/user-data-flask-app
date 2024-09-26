@@ -24,12 +24,12 @@ The application uses different configurations for development, testing, and prod
 - `HOMEPAGE_TITLE`: Title for the homepage
 - `USER_DETAIL_TITLE`: Title for the user detail page
 - `ERROR_404_TITLE` and `ERROR_500_TITLE`: Titles for error pages
-- `ERROR_404_MESSAGE` and `ERROR_500_MESSAGE`: Messages for error pages
+- `ERROR_404_MESSAGE` and `ERROR_500_MESSAGE`: Messages for error page
 
-To use different configurations, you can set the FLASK_CONFIG environment variable before running the application. 
+To use different configurations, you can set the FLASK_CONFIG environment variable before running the application.
 
 For example:
-```
+```bash
 export FLASK_CONFIG=production
 python app.py
 ```
